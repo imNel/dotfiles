@@ -29,20 +29,24 @@ require("lazy").setup({
 	-- Theme
 	{
 		"folke/tokyonight.nvim",
-		-- config = function() vim.cmd.colorscheme "tokyonight" end
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("tokyonight-storm")
+		end,
 	},
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		-- config = function() vim.cmd.colorscheme "catppuccin" end
+		lazy = true,
 	},
 	{
 		"EdenEast/nightfox.nvim",
-		config = function()
-			vim.cmd.colorscheme("duskfox")
-		end,
+		lazy = true,
 	},
-	"eddyekofo94/gruvbox-flat.nvim",
+	{
+		"eddyekofo94/gruvbox-flat.nvim",
+		lazy = true,
+	},
 	{
 		"NvChad/nvim-colorizer.lua",
 		config = function()
