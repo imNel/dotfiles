@@ -42,7 +42,7 @@ vim.diagnostic.config({
 	update_in_insert = false,
 	severity_sort = true,
 	float = {
-		border = "rounded",
+		border = "none",
 		style = "minimal",
 		source = "always",
 		prefix = "",
