@@ -70,10 +70,10 @@ require("lazy").setup({
 		dependencies = { { "hrsh7th/cmp-cmdline" } },
 	},
 	{
-		"roobert/tailwindcss-colorizer-cmp.nvim",
+		"js-everts/cmp-tailwind-colors",
 		config = function()
-			require("tailwindcss-colorizer-cmp").setup({
-				color_square_width = 1,
+			require("cmp-tailwind-colors").setup({
+				width = 1,
 			})
 		end,
 	},

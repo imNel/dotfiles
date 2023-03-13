@@ -10,21 +10,21 @@ yabai -m config                                 \
     window_origin_display        default        \
     window_placement             first_child    \
     window_placement             second_child   \
-    window_topmost               off            \
+    window_topmost               on             \
     window_shadow                off            \
     window_animation_duration    0.0            \
-    window_opacity_duration      0.0            \
-    active_window_opacity        0.90           \
-    normal_window_opacity        0.80           \
-    window_opacity               true           \
+    window_opacity_duration      0.1            \
+    active_window_opacity        1.00           \
+    normal_window_opacity        0.90           \
+    window_opacity               on             \
     insert_feedback_color        0xffd75f5f     \
-    active_window_border_color   0xff775759     \
-    normal_window_border_color   0xff555555     \
-    window_border_width          4              \
+    active_window_border_color   0xff7AA2F7     \
+    normal_window_border_color   0xff775759     \
+    window_border_width          2              \
     window_border_radius         12             \
     window_border_blur           on             \
     window_border_hidpi          on             \
-    window_border                true           \
+    window_border                on             \
     split_ratio                  0.50           \
     split_type                   auto           \
     auto_balance                 off            \

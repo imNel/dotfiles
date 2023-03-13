@@ -1,0 +1,10 @@
+theme = "tokyonight_storm"
+
+[editor]
+line-number = "relative"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[keys.normal]
+C-p = "file_picker_in_current_directory"

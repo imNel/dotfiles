@@ -35,7 +35,7 @@ cmp.setup({
 				path = " ",
 				buffer = " ",
 			},
-			before = require("tailwindcss-colorizer-cmp").formatter,
+			before = require("cmp-tailwind-colors").format,
 		}),
 	},
 	experimental = {
