@@ -32,7 +32,7 @@ o.wrap = false
 o.mouse = "a" -- Fixes mouse highlighting etc
 o.scrolloff = 8
 o.termguicolors = true
-o.conceallevel = 2
+o.conceallevel = 0
 o.concealcursor = ""
 
 vim.diagnostic.config({

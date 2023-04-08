@@ -10,19 +10,19 @@ yabai -m config                                 \
     window_origin_display        default        \
     window_placement             first_child    \
     window_placement             second_child   \
-    window_topmost               on             \
+    window_topmost               off            \
     window_shadow                off            \
     window_animation_duration    0.0            \
-    window_opacity_duration      0.1            \
+    window_opacity_duration      0.0            \
     active_window_opacity        1.00           \
-    normal_window_opacity        0.90           \
-    window_opacity               on             \
-    insert_feedback_color        0xffd75f5f     \
+    normal_window_opacity        1.00           \
+    window_opacity               off            \
+    insert_feedback_color        0xff7AA2F7     \
     active_window_border_color   0xff7AA2F7     \
-    normal_window_border_color   0xff775759     \
+    normal_window_border_color   0xff545C7E     \
     window_border_width          2              \
     window_border_radius         12             \
-    window_border_blur           on             \
+    window_border_blur           off            \
     window_border_hidpi          on             \
     window_border                on             \
     split_ratio                  0.50           \
@@ -34,9 +34,15 @@ yabai -m config                                 \
     right_padding                06             \
     window_gap                   06             \
     layout                       bsp            \
-    mouse_modifier               fn             \
+    mouse_modifier               alt            \
     mouse_action1                move           \
     mouse_action2                resize         \
     mouse_drop_action            swap           \
+
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add title="^About This Mac$" manage=off
+yabai -m rule --add app="^About This Mac$" manage=off
+yabai -m rule --add app="^Godot$" manage=off
+yabai -m rule --add app="^Steam$" manage=off
 
 echo "yabai configuration loaded.."

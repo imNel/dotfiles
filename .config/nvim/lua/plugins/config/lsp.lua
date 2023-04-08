@@ -15,6 +15,11 @@ local lsp_attach = function(client, bufnr)
 	-- Create your keybindings here...
 end
 
+require("lspconfig").kotlin_language_server.setup({
+	on_attach = lsp_attach,
+	capabilities = lsp_capabilities,
+})
+
 local lspconfig = require("lspconfig")
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
