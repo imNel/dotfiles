@@ -145,7 +145,7 @@ require("lazy").setup({
 			require("zen-mode").setup({})
 		end,
 	},
-	"andweeb/presence.nvim",
+	-- "andweeb/presence.nvim",
 	{
 		"folke/noice.nvim",
 		dependencies = {
@@ -171,6 +171,11 @@ require("lazy").setup({
 		config = function()
 			require("leap").add_default_mappings()
 		end,
+	},
+	"eandrju/cellular-automaton.nvim",
+	{
+		"imNel/pretty-ts-errors.nvim",
+		dev = true,
 	},
 }, {
 	dev = { path = "~/Clones/plugins" },
