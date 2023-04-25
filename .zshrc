@@ -4,6 +4,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR="nvim"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 source "$(brew --prefix)/etc/profile.d/z.sh"
 export PATH="$HOME/Library/pnpm:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.local/share/fnm:$HOME/.emacs.d/bin:$HOME/Clones/kotlin-language-server/server/build/install/server/bin:$PATH"

@@ -23,5 +23,3 @@ require("telescope").setup({
 		},
 	},
 })
--- Needs to be called AFTER setup
-require("telescope").load_extension("file_browser")

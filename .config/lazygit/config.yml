@@ -1,0 +1,11 @@
+os:
+  editCommand: 'floaterm'
+
+# keybinding:
+#   universal:
+#     return: '<c-/>'
+
+git:
+  paging:
+    colorArg: never
+    pager: delta --paging=never

@@ -26,6 +26,7 @@ require("lazy").setup({
 		end,
 	},
 	"nvim-treesitter/playground",
+
 	-- Theme
 	{
 		"folke/tokyonight.nvim",
@@ -34,25 +35,8 @@ require("lazy").setup({
 			vim.cmd.colorscheme("tokyonight-storm")
 		end,
 	},
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		lazy = true,
-	},
-	{
-		"EdenEast/nightfox.nvim",
-		lazy = true,
-	},
-	{
-		"eddyekofo94/gruvbox-flat.nvim",
-		lazy = true,
-	},
-	{
-		"NvChad/nvim-colorizer.lua",
-		config = function()
-			require("plugins.config.colorizer")
-		end,
-	},
+
+	-- Dashboard
 	{
 		"goolord/alpha-nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons" },
@@ -60,7 +44,15 @@ require("lazy").setup({
 			require("alpha").setup(require("alpha.themes.startify").config)
 		end,
 	},
-	-- -- Autocomplete
+
+	{
+		"NvChad/nvim-colorizer.lua",
+		config = function()
+			require("plugins.config.colorizer")
+		end,
+	},
+
+	-- Autocomplete
 	"onsails/lspkind.nvim",
 	{
 		"hrsh7th/nvim-cmp",
@@ -77,6 +69,7 @@ require("lazy").setup({
 			})
 		end,
 	},
+
 	-- Snippets
 	"L3MON4D3/LuaSnip",
 	"rafamadriz/friendly-snippets",
@@ -102,24 +95,22 @@ require("lazy").setup({
 		end,
 	},
 	"folke/neodev.nvim",
+
 	-- Telescope
-	"nvim-lua/plenary.nvim",
 	{
 		"nvim-telescope/telescope.nvim",
 		config = function()
 			require("plugins.config.telescope")
 		end,
+		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
-	"nvim-telescope/telescope-file-browser.nvim",
 	"mbbill/undotree",
-	-- Lualine
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			require("plugins.config.lualine")
 		end,
 	},
-	-- Comment Toggle
 	{
 		"numToStr/Comment.nvim",
 		config = function()
@@ -127,9 +118,6 @@ require("lazy").setup({
 		end,
 	},
 	"JoosepAlviste/nvim-ts-context-commentstring",
-	-- Git
-	"f-person/git-blame.nvim",
-	-- Auto-size windows
 	{
 		"anuvyklack/windows.nvim",
 		dependencies = {
@@ -142,10 +130,13 @@ require("lazy").setup({
 	{
 		"folke/zen-mode.nvim",
 		config = function()
-			require("zen-mode").setup({})
+			require("zen-mode").setup({
+				window = {
+					backdrop = 1,
+				},
+			})
 		end,
 	},
-	-- "andweeb/presence.nvim",
 	{
 		"folke/noice.nvim",
 		dependencies = {
@@ -157,10 +148,15 @@ require("lazy").setup({
 		end,
 	},
 	"ThePrimeagen/harpoon",
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	},
 	-- Copilot
 	"github/copilot.vim",
 	-- 'Exafunction/codeium.vim',
-
 	-- {
 	--   "lukas-reineke/indent-blankline.nvim",
 	--   config = function() require('indent_blankline').setup {space_char_blankline = " "} end
@@ -172,10 +168,37 @@ require("lazy").setup({
 			require("leap").add_default_mappings()
 		end,
 	},
-	"eandrju/cellular-automaton.nvim",
+  'voldikss/vim-floaterm',
+
+  -- Dev Stuff
 	{
 		"imNel/pretty-ts-errors.nvim",
 		dev = true,
+	},
+
+  -- Neorg
+	{
+		"nvim-neorg/neorg",
+		build = ":Neorg sync-parsers",
+		opts = {
+			load = {
+				["core.defaults"] = {}, -- Loads default behaviour
+				["core.concealer"] = {
+					config = {
+						folds = false,
+					},
+				}, -- Adds pretty icons to your documents
+				["core.dirman"] = { -- Manages Neorg workspaces
+					config = {
+						workspaces = {
+							main = "~/Notes",
+						},
+						default_workspace = "main",
+					},
+				},
+			},
+		},
+		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
 }, {
 	dev = { path = "~/Clones/plugins" },
