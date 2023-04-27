@@ -168,15 +168,20 @@ require("lazy").setup({
 			require("leap").add_default_mappings()
 		end,
 	},
-  'voldikss/vim-floaterm',
+	"voldikss/vim-floaterm",
 
-  -- Dev Stuff
+	-- Dev Stuff
 	{
 		"imNel/pretty-ts-errors.nvim",
 		dev = true,
 	},
+	{
+		"imNel/monorepo.nvim",
+		config = true,
+		dev = true,
+	},
 
-  -- Neorg
+	-- Neorg
 	{
 		"nvim-neorg/neorg",
 		build = ":Neorg sync-parsers",

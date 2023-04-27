@@ -5,6 +5,13 @@ set("n", "<C-p>", "<cmd>Telescope find_files <CR>")
 set("n", "<C-space>", "<cmd>Telescope live_grep <CR>")
 set("n", "<leader>b", "<cmd>Telescope buffers<CR>")
 set("n", "<leader>e", "<cmd>Ex<CR>")
+-- set("n", "<leader>m", "<cmd>Telescope monorepo<CR>")
+set("n", "<leader>m", function()
+	require("monorepo").find_projects()
+end)
+set("n", "<leader>n", function()
+	require("monorepo").add_current_project()
+end)
 
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
@@ -69,7 +76,7 @@ set("v", "<leader>d", '"_d')
 
 -- Git
 local g = "<leader>g"
-set("n", g .. "", "<cmd>FloatermNew --name=lazygit --height=1.0 --width=1.0 lazygit<CR>")
+set("n", g .. "", "<cmd>FloatermNew --name=lazygit --height=0.9 --width=0.9 lazygit<CR>")
 -- set("n", g .. "s", "<cmd>Telescope git_status<CR>")
 -- set("n", g .. "u", "<cmd>GitBlameOpenCommitURL<CR>")
 -- set("n", g .. "?", "<cmd>GitBlameToggle<CR>")
