@@ -35,15 +35,22 @@ require("lazy").setup({
 			vim.cmd.colorscheme("tokyonight-storm")
 		end,
 	},
-
+	-- {
+	-- 	"eddyekofo94/gruvbox-flat.nvim",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("gruvbox-flat")
+	-- 	end,
+	-- },
+	"kyazdani42/nvim-web-devicons",
 	-- Dashboard
-	{
-		"goolord/alpha-nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons" },
-		config = function()
-			require("alpha").setup(require("alpha.themes.startify").config)
-		end,
-	},
+	-- {
+	-- 	"goolord/alpha-nvim",
+	-- 	dependencies = { "kyazdani42/nvim-web-devicons" },
+	-- 	config = function()
+	-- 		require("alpha").setup(require("alpha.themes.startify").config)
+	-- 	end,
+	-- },
 
 	{
 		"NvChad/nvim-colorizer.lua",
@@ -105,12 +112,12 @@ require("lazy").setup({
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
 	"mbbill/undotree",
-	{
-		"nvim-lualine/lualine.nvim",
-		config = function()
-			require("plugins.config.lualine")
-		end,
-	},
+	-- {
+	-- 	"nvim-lualine/lualine.nvim",
+	-- 	config = function()
+	-- 		require("plugins.config.lualine")
+	-- 	end,
+	-- },
 	{
 		"numToStr/Comment.nvim",
 		config = function()
@@ -154,8 +161,24 @@ require("lazy").setup({
 			require("gitsigns").setup()
 		end,
 	},
+	"f-person/git-blame.nvim",
 	-- Copilot
-	"github/copilot.vim",
+	-- "github/copilot.vim",
+	{
+		"zbirenbaum/copilot.lua",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
+		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		dependencies = { "zbirenbaum/copilot.lua" },
+		config = true,
+	},
 	-- 'Exafunction/codeium.vim',
 	-- {
 	--   "lukas-reineke/indent-blankline.nvim",
@@ -169,7 +192,6 @@ require("lazy").setup({
 		end,
 	},
 	"voldikss/vim-floaterm",
-
 	-- Dev Stuff
 	{
 		"imNel/pretty-ts-errors.nvim",
@@ -177,8 +199,22 @@ require("lazy").setup({
 	},
 	{
 		"imNel/monorepo.nvim",
-		config = true,
+		config = function()
+			require("monorepo").setup({
+				silent = false,
+			})
+		end,
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		dev = true,
+	},
+	"imNel/whoops.nvim",
+
+	{
+		"echasnovski/mini.nvim",
+		config = function()
+			-- require("mini.pairs").setup()
+			require("mini.statusline").setup()
+		end,
 	},
 
 	-- Neorg

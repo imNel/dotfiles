@@ -1,14 +1,19 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 
---
+lspkind.init({
+	symbol_map = {
+		Copilot = "",
+	},
+})
+
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	}),
 	snippet = {
 		expand = function(args)
@@ -16,6 +21,7 @@ cmp.setup({
 		end,
 	},
 	sources = cmp.config.sources({
+		{ name = "copilot", group_index = 2 },
 		{ name = "nvim_lua" },
 		{ name = "nvim_lsp" },
 		{ name = "path" },
@@ -39,7 +45,7 @@ cmp.setup({
 		}),
 	},
 	experimental = {
-		ghost_text = true,
+		ghost_text = {},
 	},
 })
 

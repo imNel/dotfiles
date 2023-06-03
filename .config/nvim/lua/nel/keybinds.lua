@@ -1,16 +1,30 @@
 local set = vim.keymap.set
 --
 -- Launch telescope
-set("n", "<C-p>", "<cmd>Telescope find_files <CR>")
+set("n", "<C-p>", function()
+	require("telescope.builtin").find_files()
+end)
 set("n", "<C-space>", "<cmd>Telescope live_grep <CR>")
 set("n", "<leader>b", "<cmd>Telescope buffers<CR>")
 set("n", "<leader>e", "<cmd>Ex<CR>")
 -- set("n", "<leader>m", "<cmd>Telescope monorepo<CR>")
 set("n", "<leader>m", function()
-	require("monorepo").find_projects()
+	require("telescope").extensions.monorepo.monorepo()
 end)
 set("n", "<leader>n", function()
-	require("monorepo").add_current_project()
+	require("monorepo").toggle_project()
+end)
+
+set("n", "<C-w>c", function()
+	require("whoops").close()
+end, { remap = true })
+
+set("n", "<C-w>S", function()
+	require("whoops").whoops()
+end, { remap = true })
+
+set("n", "<C-w>V", function()
+	require("whoops").whoops(true)
 end)
 
 set("v", "J", ":m '>+1<CR>gv=gv")
@@ -27,6 +41,9 @@ set("n", "N", "Nzzzv")
 set("n", "gd", "<cmd>Telescope lsp_definitions<CR>")
 set("n", "gh", function()
 	vim.lsp.buf.hover({ silent = true })
+end)
+set("n", "gn", function()
+	vim.lsp.buf.rename()
 end)
 set("n", "gr", "<cmd>Telescope lsp_references<CR>")
 set("n", "gi", "<cmd>Telescope lsp_implementations<CR>")
@@ -47,8 +64,14 @@ set("n", "<leader>f", function()
 				or ft == "typescriptreact"
 				or ft == "javascript"
 				or ft == "javascriptreact"
+				or ft == "css"
+				or ft == "scss"
+				or ft == "json"
+				or ft == "python"
 			then
 				return client.name == "null-ls"
+			else
+				return client.name
 			end
 		end,
 	})
@@ -93,7 +116,7 @@ set("n", "<leader>a", function()
 end)
 for i = 1, 9 do
 	set("n", "<leader>" .. i, function()
-		require("harpoon.ui").nav_file(i)
+		require("monorepo").go_to_project(i)
 	end)
 end
 

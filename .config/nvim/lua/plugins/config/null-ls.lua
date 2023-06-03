@@ -5,6 +5,7 @@ local sources = {
 		extra_filetypes = { "astro" },
 	}),
 	null_ls.builtins.formatting.stylua,
+  null_ls.builtins.formatting.black
 }
 
 null_ls.setup({
