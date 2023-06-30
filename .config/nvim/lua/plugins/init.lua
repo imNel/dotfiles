@@ -43,15 +43,6 @@ require("lazy").setup({
 	-- 	end,
 	-- },
 	"kyazdani42/nvim-web-devicons",
-	-- Dashboard
-	-- {
-	-- 	"goolord/alpha-nvim",
-	-- 	dependencies = { "kyazdani42/nvim-web-devicons" },
-	-- 	config = function()
-	-- 		require("alpha").setup(require("alpha.themes.startify").config)
-	-- 	end,
-	-- },
-
 	{
 		"NvChad/nvim-colorizer.lua",
 		config = function()
@@ -102,7 +93,6 @@ require("lazy").setup({
 		end,
 	},
 	"folke/neodev.nvim",
-
 	-- Telescope
 	{
 		"nvim-telescope/telescope.nvim",
@@ -112,12 +102,6 @@ require("lazy").setup({
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
 	"mbbill/undotree",
-	-- {
-	-- 	"nvim-lualine/lualine.nvim",
-	-- 	config = function()
-	-- 		require("plugins.config.lualine")
-	-- 	end,
-	-- },
 	{
 		"numToStr/Comment.nvim",
 		config = function()
@@ -163,7 +147,6 @@ require("lazy").setup({
 	},
 	"f-person/git-blame.nvim",
 	-- Copilot
-	-- "github/copilot.vim",
 	{
 		"zbirenbaum/copilot.lua",
 		event = "InsertEnter",
@@ -179,11 +162,6 @@ require("lazy").setup({
 		dependencies = { "zbirenbaum/copilot.lua" },
 		config = true,
 	},
-	-- 'Exafunction/codeium.vim',
-	-- {
-	--   "lukas-reineke/indent-blankline.nvim",
-	--   config = function() require('indent_blankline').setup {space_char_blankline = " "} end
-	-- },
 	{
 		"ggandor/leap.nvim",
 		dependencies = { "tpope/vim-repeat" },
@@ -192,6 +170,7 @@ require("lazy").setup({
 		end,
 	},
 	"voldikss/vim-floaterm",
+
 	-- Dev Stuff
 	{
 		"imNel/pretty-ts-errors.nvim",
@@ -207,39 +186,12 @@ require("lazy").setup({
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		dev = true,
 	},
-	"imNel/whoops.nvim",
-
 	{
 		"echasnovski/mini.nvim",
 		config = function()
 			-- require("mini.pairs").setup()
 			require("mini.statusline").setup()
 		end,
-	},
-
-	-- Neorg
-	{
-		"nvim-neorg/neorg",
-		build = ":Neorg sync-parsers",
-		opts = {
-			load = {
-				["core.defaults"] = {}, -- Loads default behaviour
-				["core.concealer"] = {
-					config = {
-						folds = false,
-					},
-				}, -- Adds pretty icons to your documents
-				["core.dirman"] = { -- Manages Neorg workspaces
-					config = {
-						workspaces = {
-							main = "~/Notes",
-						},
-						default_workspace = "main",
-					},
-				},
-			},
-		},
-		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
 }, {
 	dev = { path = "~/Clones/plugins" },

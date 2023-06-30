@@ -14,19 +14,6 @@ end)
 set("n", "<leader>n", function()
 	require("monorepo").toggle_project()
 end)
-
-set("n", "<C-w>c", function()
-	require("whoops").close()
-end, { remap = true })
-
-set("n", "<C-w>S", function()
-	require("whoops").whoops()
-end, { remap = true })
-
-set("n", "<C-w>V", function()
-	require("whoops").whoops(true)
-end)
-
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 set("n", "J", "mzJ`z")
