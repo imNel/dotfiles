@@ -25,7 +25,6 @@ require("lazy").setup({
 			require("plugins.config.treesitter")
 		end,
 	},
-	"nvim-treesitter/playground",
 
 	-- Theme
 	{
@@ -103,13 +102,6 @@ require("lazy").setup({
 	},
 	"mbbill/undotree",
 	{
-		"numToStr/Comment.nvim",
-		config = function()
-			require("plugins.config.comment")
-		end,
-	},
-	"JoosepAlviste/nvim-ts-context-commentstring",
-	{
 		"anuvyklack/windows.nvim",
 		dependencies = {
 			"anuvyklack/middleclass",
@@ -119,32 +111,24 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"folke/zen-mode.nvim",
+		"echasnovski/mini.nvim",
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
 		config = function()
-			require("zen-mode").setup({
-				window = {
-					backdrop = 1,
+			-- require("mini.pairs").setup()
+			require("mini.statusline").setup()
+			require("mini.comment").setup({
+				options = {
+					custom_commentstring = function()
+						return require("ts_context_commentstring.internal").calculate_commentstring()
+							or vim.bo.commentstring
+					end,
 				},
 			})
 		end,
 	},
-	{
-		"folke/noice.nvim",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-		config = function()
-			require("plugins.config.noice")
-		end,
-	},
 	"ThePrimeagen/harpoon",
-	{
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup()
-		end,
-	},
 	"f-person/git-blame.nvim",
 	-- Copilot
 	{
@@ -169,8 +153,6 @@ require("lazy").setup({
 			require("leap").add_default_mappings()
 		end,
 	},
-	"voldikss/vim-floaterm",
-
 	-- Dev Stuff
 	{
 		"imNel/pretty-ts-errors.nvim",
@@ -185,13 +167,6 @@ require("lazy").setup({
 		end,
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		dev = true,
-	},
-	{
-		"echasnovski/mini.nvim",
-		config = function()
-			-- require("mini.pairs").setup()
-			require("mini.statusline").setup()
-		end,
 	},
 }, {
 	dev = { path = "~/Clones/plugins" },

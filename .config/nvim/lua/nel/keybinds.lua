@@ -69,7 +69,7 @@ set("n", "<leader>w", "<cmd>Telescope diagnostics<CR>")
 set("n", "<leader>u", "<cmd>UndotreeToggle<CR><cmd>UndotreeFocus<CR>")
 
 -- Window Keybinds
-set("n", "<C-w>z", "<cmd>:ZenMode<CR>")
+set("n", "<C-w>z", "<cmd>:WindowsMaximize<CR>")
 set("n", "<C-h>", "<C-w>h")
 set("n", "<C-j>", "<C-w>j")
 set("n", "<C-k>", "<C-w>k")
@@ -86,10 +86,9 @@ set("v", "<leader>d", '"_d')
 
 -- Git
 local g = "<leader>g"
-set("n", g .. "", "<cmd>FloatermNew --name=lazygit --height=0.9 --width=0.9 lazygit<CR>")
--- set("n", g .. "s", "<cmd>Telescope git_status<CR>")
--- set("n", g .. "u", "<cmd>GitBlameOpenCommitURL<CR>")
--- set("n", g .. "?", "<cmd>GitBlameToggle<CR>")
+set("n", g .. "s", "<cmd>Telescope git_status<CR>")
+set("n", g .. "u", "<cmd>GitBlameOpenCommitURL<CR>")
+set("n", g .. "?", "<cmd>GitBlameToggle<CR>")
 
 set("n", "<leader><TAB>", "<cmd>Neorg workspace main<CR>")
 set("n", "<leader><ESC>", "<cmd>Neorg return<CR>")
@@ -103,7 +102,7 @@ set("n", "<leader>a", function()
 end)
 for i = 1, 9 do
 	set("n", "<leader>" .. i, function()
-		require("monorepo").go_to_project(i)
+		require("harpoon.ui").nav_file(i)
 	end)
 end
 
