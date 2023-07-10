@@ -16,7 +16,9 @@ eval "$(starship init zsh)"
 # alias delbranches="git fetch && git branch -vv | grep ': gone]'|  grep -v \"\*\" | awk '{ print $1; }' | xargs -r git branch -d"
 alias lg="lazygit"
 alias nvm="echo You wanna use: fnm"
-alias tp="togglepadding"
+alias vim="nvim"
+alias nv="nvim"
+alias pn="pnpm"
 alias s="kitty +kitten ssh"
 
 # export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -24,6 +26,6 @@ alias s="kitty +kitten ssh"
 # export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # pnpm
-export PNPM_HOME="/Users/nel/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+# export PNPM_HOME="/Users/nel/Library/pnpm"
+# export PATH="$PNPM_HOME:$PATH"
 # pnpm end
