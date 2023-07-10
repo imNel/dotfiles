@@ -32,8 +32,10 @@ o.wrap = false
 o.mouse = "a" -- Fixes mouse highlighting etc
 o.scrolloff = 8
 o.termguicolors = true
-o.conceallevel = 1
+o.conceallevel = 0
 o.concealcursor = ""
+o.laststatus = 3
+o.signcolumn = "number"
 
 vim.diagnostic.config({
 	underline = true,
@@ -50,4 +52,4 @@ vim.diagnostic.config({
 	},
 })
 
-o.signcolumn = "yes"
+vim.api.nvim_command("hi StatusLine guibg=NONE")

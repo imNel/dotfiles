@@ -116,8 +116,6 @@ require("lazy").setup({
 			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
 		config = function()
-			-- require("mini.pairs").setup()
-			require("mini.statusline").setup()
 			require("mini.comment").setup({
 				options = {
 					custom_commentstring = function()
@@ -153,6 +151,13 @@ require("lazy").setup({
 			require("leap").add_default_mappings()
 		end,
 	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		opts = {
+			char = "┊",
+			show_trailing_blankline_indent = false,
+		},
+	},
 	-- Dev Stuff
 	{
 		"imNel/pretty-ts-errors.nvim",
@@ -166,7 +171,6 @@ require("lazy").setup({
 			})
 		end,
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-		dev = true,
 	},
 }, {
 	dev = { path = "~/Clones/plugins" },
