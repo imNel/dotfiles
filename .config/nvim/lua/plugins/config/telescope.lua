@@ -6,7 +6,6 @@ require("telescope").setup({
 		prompt_prefix = "  > ",
 		selection_caret = "  ",
 		entry_prefix = "  ",
-		borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
 		layout_config = {
 			horizontal = {
 				prompt_position = "top",

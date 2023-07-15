@@ -45,7 +45,11 @@ require("lazy").setup({
 	{
 		"NvChad/nvim-colorizer.lua",
 		config = function()
-			require("plugins.config.colorizer")
+			require("colorizer").setup({
+				buftypes = { "*", "!prompt", "!popup" },
+				filetypes = { "*" },
+				user_default_options = { names = false, tailwind = "both" },
+			})
 		end,
 	},
 
@@ -106,9 +110,7 @@ require("lazy").setup({
 		dependencies = {
 			"anuvyklack/middleclass",
 		},
-		config = function()
-			require("windows").setup()
-		end,
+		config = true,
 	},
 	{
 		"echasnovski/mini.nvim",
@@ -152,11 +154,20 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		opts = {
-			char = "┊",
-			show_trailing_blankline_indent = false,
-		},
+		"xiyaowong/transparent.nvim",
+		config = function()
+			require("plugins.config.transparent")
+		end,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("plugins.config.lualine")
+		end,
+	},
+	{
+		"axelvc/template-string.nvim",
+		config = true,
 	},
 	-- Dev Stuff
 	{
