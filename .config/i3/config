@@ -2,7 +2,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $alt Mod1
+set $alt Mod4
 set $cmd Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -11,8 +11,6 @@ font pango:Hack Nerd Font Mono 10
 
 default_border pixel 2
 default_floating_border pixel 2
-
-smart_borders on
 
 gaps inner 6
 
@@ -24,7 +22,7 @@ gaps inner 6
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 # use feh for wallpaper
-exec --no-startup-id feh --bg-fill ~/wallpaper.png
+exec --no-startup-id feh --bg-fill ~/wallpaper-simple.png
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -91,7 +89,7 @@ bindsym $alt+f fullscreen toggle
 bindsym $alt+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $alt+space focus mode_toggle
+bindsym $alt+t focus mode_toggle
 
 # focus the parent container
 bindsym $alt+a focus parent
@@ -165,7 +163,7 @@ mode "resize" {
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym $alt+r mode "default"
 }
 
 bindsym $alt+r mode "resize"
