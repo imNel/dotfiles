@@ -6,6 +6,10 @@ vim.keymap.set("v", "<D-v>", '"+P')
 vim.keymap.set("c", "<D-v>", "<C-R>+")
 vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli')
 
+vim.g.neovide_refresh_rate = 120
+vim.g.neovide_refresh_rate_idle = 5
+vim.o.guifont = "Twilio Sans Mono:h16"
+
 -- Transparency formatting
 local alpha = function()
 	return string.format("%x", math.floor(255 * vim.g.neovide_transparency_point))

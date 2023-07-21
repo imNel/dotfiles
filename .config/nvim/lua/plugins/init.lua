@@ -41,7 +41,7 @@ require("lazy").setup({
 	-- 		vim.cmd.colorscheme("gruvbox-flat")
 	-- 	end,
 	-- },
-	"kyazdani42/nvim-web-devicons",
+	"nvim-tree/nvim-web-devicons",
 	{
 		"NvChad/nvim-colorizer.lua",
 		config = function()
@@ -104,6 +104,7 @@ require("lazy").setup({
 		end,
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
+	"nvim-telescope/telescope-project.nvim",
 	"mbbill/undotree",
 	{
 		"anuvyklack/windows.nvim",
@@ -160,14 +161,44 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"nvim-lualine/lualine.nvim",
+		"tamton-aquib/staline.nvim",
 		config = function()
-			require("plugins.config.lualine")
+			require("staline").setup({
+				sections = {
+					left = { "  ", "mode", " ", "branch", " ", "lsp" },
+					mid = {},
+					right = { "file_name", "line_column" },
+				},
+				-- mode_colors = {
+				-- 	i = "#d4be98",
+				-- 	n = "#84a598",
+				-- 	c = "#8fbf7f",
+				-- 	v = "#fc802d",
+				-- },
+				defaults = {
+					true_colors = true,
+					line_column = " [%l/%L] :%c  ",
+					branch_symbol = " ",
+				},
+			})
 		end,
 	},
+
 	{
 		"axelvc/template-string.nvim",
 		config = true,
+	},
+	{
+		"goolord/alpha-nvim",
+		config = function()
+			require("alpha").setup(require("plugins.config.alpha").config)
+		end,
+	},
+	{
+		"NvChad/nvterm",
+		config = function()
+			require("nvterm").setup()
+		end,
 	},
 	-- Dev Stuff
 	{

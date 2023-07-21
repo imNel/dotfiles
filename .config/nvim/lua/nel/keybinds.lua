@@ -14,9 +14,14 @@ end)
 set("n", "<leader>n", function()
 	require("monorepo").toggle_project()
 end)
+set("n", "<leader>p", function()
+	require("telescope").extensions.project.project()
+end)
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 set("n", "J", "mzJ`z")
+set("n", "H", "^")
+set("n", "L", "$")
 
 -- Keepin stuff centred
 set("n", "<C-u>", "<C-u>zz")
@@ -80,7 +85,6 @@ set("n", "<leader>y", '"+y')
 set("v", "<leader>y", '"+y')
 set("n", "<leader>Y", '"+Y')
 -- Void Clipboard
-set("x", "<leader>p", '"_dP')
 set("n", "<leader>d", '"_d')
 set("v", "<leader>d", '"_d')
 

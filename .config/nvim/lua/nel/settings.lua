@@ -35,7 +35,7 @@ o.termguicolors = true
 o.conceallevel = 0
 o.concealcursor = ""
 o.laststatus = 3
-o.signcolumn = "number"
+o.signcolumn = "yes"
 
 vim.diagnostic.config({
 	underline = true,

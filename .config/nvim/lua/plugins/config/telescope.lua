@@ -1,3 +1,6 @@
+local project_actions = require("telescope._extensions.project.actions")
+local action_state = require("telescope.actions.state")
+
 require("telescope").setup({
 	defaults = {
 		selection_strategy = "reset",
@@ -26,5 +29,24 @@ require("telescope").setup({
 		file_browser = {
 			initial_mode = "normal",
 		},
+		project = {
+      base_dirs = {
+        {'~/dotfiles'},
+        {'~/Diversus', max_depth = 3},
+        {'~/Clones', max_depth = 3},
+      },
+			on_project_selected = function(prompt_bufnr)
+				-- Change dir to the selected project
+				project_actions.change_working_directory(prompt_bufnr, false)
+
+				-- Change monorepo directory to the selected project
+				local selected_entry = action_state.get_selected_entry(prompt_bufnr)
+				require("monorepo").change_monorepo(selected_entry.value)
+
+	      require("telescope").extensions.monorepo.monorepo()
+			end,
+		},
 	},
 })
+
+require("telescope").load_extension("project")
