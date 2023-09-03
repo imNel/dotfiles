@@ -36,5 +36,6 @@ require("transparent").setup({
 		"TelescopePreviewTitle",
 		"TelescopePreviewNormal",
 		"TelescopePreviewBorder",
+		"StatusLine",
 	},
 })
