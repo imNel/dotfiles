@@ -1,0 +1,17 @@
+width = 25%
+height = 20%
+border-width = 2
+outline-width = 0
+padding-left = 8
+padding-top = 8
+prompt-padding = 0
+result-spacing = 0
+corner-radius = 8
+num-results = 5
+font = monospace
+font-size = 14
+background-color = #24283B
+text-color = #565F89
+selection-color = #7AA2F7
+border-color = #7AA2F7
+prompt-text = "> "
