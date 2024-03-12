@@ -38,16 +38,12 @@ o.laststatus = 3
 o.signcolumn = "yes"
 
 vim.diagnostic.config({
-	underline = true,
-	virtual_text = false,
-	signs = true,
-	update_in_insert = false,
-	severity_sort = true,
-	float = {
-		border = "none",
-		style = "minimal",
-		source = "always",
-		prefix = "",
-		header = "",
-	},
+	-- underline = true,
+	-- virtual_text = false,
+	-- signs = true,
+	-- update_in_insert = false,
+	-- severity_sort = true,
+	-- float = {
+	-- 	border = "none",
+	-- },
 })

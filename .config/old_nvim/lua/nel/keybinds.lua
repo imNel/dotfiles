@@ -1,12 +1,12 @@
 local set = vim.keymap.set
---
+
 -- Launch telescope
 set("n", "<C-p>", function()
 	require("telescope.builtin").find_files()
 end)
 set("n", "<C-space>", "<cmd>Telescope live_grep <CR>")
 set("n", "<leader>b", "<cmd>Telescope buffers<CR>")
-set("n", "<leader>e", "<cmd>Ex<CR>")
+set("n", "<leader>e", "<cmd>Oil<CR>")
 -- set("n", "<leader>m", "<cmd>Telescope monorepo<CR>")
 set("n", "<leader>m", function()
 	require("telescope").extensions.monorepo.monorepo()
@@ -41,6 +41,12 @@ set("n", "gr", "<cmd>Telescope lsp_references<CR>")
 set("n", "gi", "<cmd>Telescope lsp_implementations<CR>")
 set("n", "gl", function()
 	vim.diagnostic.open_float()
+end)
+set("n", "gj", function()
+  vim.diagnostic.goto_next({ popup_opts = { focusable = false } })
+end)
+set("n", "gk", function()
+  vim.diagnostic.goto_prev({ popup_opts = { focusable = false } })
 end)
 set("n", "gt", function()
 	require("pretty-ts-errors").show_diagnostics({ silent = true })

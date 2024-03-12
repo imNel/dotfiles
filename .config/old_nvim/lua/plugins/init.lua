@@ -35,6 +35,14 @@ require("lazy").setup({
 		end,
 	},
 	-- {
+	-- 	"olivercederborg/poimandres.nvim",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("poimandres").setup()
+	-- 		vim.cmd.colorscheme("poimandres")
+	-- 	end,
+	-- },
+	-- {
 	-- 	"eddyekofo94/gruvbox-flat.nvim",
 	-- 	priority = 1000,
 	-- 	config = function()
@@ -188,19 +196,20 @@ require("lazy").setup({
 		"axelvc/template-string.nvim",
 		config = true,
 	},
+	-- {
+	-- 	"stevearc/oil.nvim",
+	-- 	config = true,
+	-- 	opts = {},
+	-- },
 	{
 		"goolord/alpha-nvim",
 		config = function()
 			require("alpha").setup(require("plugins.config.alpha").config)
 		end,
 	},
-	{
-		"NvChad/nvterm",
-		config = function()
-			require("nvterm").setup()
-		end,
-	},
-	-- Dev Stuff
+  {
+    "nvim-pack/nvim-spectre",
+  },
 	{
 		"imNel/pretty-ts-errors.nvim",
 		dev = true,
@@ -212,6 +221,7 @@ require("lazy").setup({
 				silent = false,
 			})
 		end,
+		-- dev = true,
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 	},
 }, {
