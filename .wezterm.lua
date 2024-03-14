@@ -51,6 +51,7 @@ return {
   use_fancy_tab_bar = false,
   window_decorations = "RESIZE",
   enable_scroll_bar = false,
+  check_for_updates = false,
   window_padding = {
     left = 8,
     right = 8,
