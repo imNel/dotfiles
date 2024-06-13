@@ -18,20 +18,26 @@ require("paq")({
 	"hrsh7th/cmp-nvim-lua",
 	"hrsh7th/cmp-cmdline",
 	"rafamadriz/friendly-snippets",
-	"zbirenbaum/copilot.lua",
-	"zbirenbaum/copilot-cmp",
+	-- "zbirenbaum/copilot.lua",
+	-- "zbirenbaum/copilot-cmp",
+  "supermaven-inc/supermaven-nvim",
 	-- "onsails/lspkind.nvim",
 
 	-- Everything else
-	"folke/tokyonight.nvim",
+	-- "olivercederborg/poimandres.nvim",
 	"mbbill/undotree",
 	"nvim-lua/plenary.nvim",
 	"nvim-telescope/telescope.nvim",
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"numToStr/Comment.nvim",
 	"JoosepAlviste/nvim-ts-context-commentstring",
-	"f-person/git-blame.nvim",
+	-- "f-person/git-blame.nvim",
 	"stevearc/conform.nvim",
+	"lukas-reineke/indent-blankline.nvim",
+	{ "schrieveslaach/sonarlint.nvim", url = "https://gitlab.com/schrieveslaach/sonarlint.nvim" },
+	"folke/zen-mode.nvim",
+	"imNel/monorepo.nvim",
+	"folke/tokyonight.nvim",
 })
 
 require("settings")

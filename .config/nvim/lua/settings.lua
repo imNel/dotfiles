@@ -34,7 +34,8 @@ o.conceallevel = 0
 o.concealcursor = ""
 
 -- Theme
-vim.cmd.colorscheme("tokyonight-storm")
+require("tokyonight").setup()
+vim.cmd.colorscheme("tokyonight")
 
 -- Comments
 -- See: `:h comment-nvim`
@@ -111,6 +112,26 @@ require("mason-lspconfig").setup_handlers({
 	end,
 })
 
+-- Sonarlint
+require('sonarlint').setup({
+   server = {
+      cmd = {
+         'sonarlint-language-server',
+         -- Ensure that sonarlint-language-server uses stdio channel
+         '-stdio',
+         '-analyzers',
+         -- paths to the analyzers you need, using those for python and java in this example
+         vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjs.jar"),
+         vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarhtml.jar"),
+      }
+   },
+   filetypes = {
+      'typescript',
+      'typescriptreact',
+   }
+})
+
+
 -- Completion
 local cmp = require("cmp")
 local luasnip = require("luasnip")
@@ -119,11 +140,12 @@ luasnip.config.setup()
 
 -- Copilot (Disable suggestions, then add to cmp)
 -- see `:Copilot`
-require("copilot").setup({
-	suggestion = { enabled = false },
-	panel = { enabled = false },
-})
-require("copilot_cmp").setup()
+-- require("copilot").setup({
+-- 	suggestion = { enabled = false },
+-- 	panel = { enabled = false },
+-- })
+-- require("copilot_cmp").setup()
+require("supermaven-nvim").setup({})
 
 cmp.setup({
 	snippet = {
@@ -143,25 +165,7 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
-		}),
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expand_or_locally_jumpable() then
-				luasnip.expand_or_jump()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.locally_jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
+		})
 	}),
 	sources = {
 		{ name = "copilot", group_index = 2 },
@@ -193,6 +197,9 @@ require("conform").setup({
 		javascriptreact = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
 		typescriptreact = { { "prettierd", "prettier" } },
+    scss = { { "prettierd", "prettier" } },
+    css = { { "prettierd", "prettier" } },
+    java = { "google-java-format" },
 	},
 	-- format_on_save = {
 	-- 	-- These options will be passed to conform.format()
@@ -213,3 +220,6 @@ vim.diagnostic.config({
 		source = "always",
 	},
 })
+
+require("ibl").setup({ scope = { enabled = false }, indent = { char = "┆" } })
+require("monorepo").setup()

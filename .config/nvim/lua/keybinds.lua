@@ -1,7 +1,9 @@
 local set = vim.keymap.set
 
 -- Window Keybinds
-set("n", "<C-w>z", "<cmd>:WindowsMaximize<CR>")
+set("n", "<C-w>z", function()
+	require("zen-mode").toggle()
+end)
 set("n", "<C-h>", "<C-w>h")
 set("n", "<C-j>", "<C-w>j")
 set("n", "<C-k>", "<C-w>k")
@@ -66,6 +68,10 @@ end)
 set("n", "<leader>f", function()
 	require("conform").format()
 end) --
+set("n", "<leader>m", "<cmd>Telescope monorepo<CR>")
+set("n", "<leader>a", function()
+	require("monorepo").add_project()
+end)
 
 -- Git
 local g = "<leader>g"
