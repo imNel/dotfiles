@@ -70,7 +70,7 @@ set("n", "<leader>f", function()
 end) --
 set("n", "<leader>m", "<cmd>Telescope monorepo<CR>")
 set("n", "<leader>a", function()
-	require("monorepo").add_project()
+	require("monorepo").toggle_project()
 end)
 
 -- Git
