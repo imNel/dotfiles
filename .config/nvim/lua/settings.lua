@@ -34,8 +34,21 @@ o.conceallevel = 0
 o.concealcursor = ""
 
 -- Theme
-require("tokyonight").setup()
-vim.cmd.colorscheme("tokyonight")
+local auto_dark_mode = require("auto-dark-mode")
+
+auto_dark_mode.setup({
+	update_interval = 1000,
+	set_dark_mode = function()
+		vim.api.nvim_set_option("background", "dark")
+		require("tokyonight").setup()
+		vim.cmd.colorscheme("tokyonight-storm")
+	end,
+	set_light_mode = function()
+		vim.api.nvim_set_option("background", "light")
+		g.zenbones_compat = 1
+		vim.cmd.colorscheme("zenbones")
+	end,
+})
 
 -- Comments
 -- See: `:h comment-nvim`
@@ -113,24 +126,23 @@ require("mason-lspconfig").setup_handlers({
 })
 
 -- Sonarlint
-require('sonarlint').setup({
-   server = {
-      cmd = {
-         'sonarlint-language-server',
-         -- Ensure that sonarlint-language-server uses stdio channel
-         '-stdio',
-         '-analyzers',
-         -- paths to the analyzers you need, using those for python and java in this example
-         vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjs.jar"),
-         vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarhtml.jar"),
-      }
-   },
-   filetypes = {
-      'typescript',
-      'typescriptreact',
-   }
+require("sonarlint").setup({
+	server = {
+		cmd = {
+			"sonarlint-language-server",
+			-- Ensure that sonarlint-language-server uses stdio channel
+			"-stdio",
+			"-analyzers",
+			-- paths to the analyzers you need, using those for python and java in this example
+			vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjs.jar"),
+			vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarhtml.jar"),
+		},
+	},
+	filetypes = {
+		"typescript",
+		"typescriptreact",
+	},
 })
-
 
 -- Completion
 local cmp = require("cmp")
@@ -165,7 +177,7 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
-		})
+		}),
 	}),
 	sources = {
 		{ name = "copilot", group_index = 2 },
@@ -197,9 +209,9 @@ require("conform").setup({
 		javascriptreact = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
 		typescriptreact = { { "prettierd", "prettier" } },
-    scss = { { "prettierd", "prettier" } },
-    css = { { "prettierd", "prettier" } },
-    java = { "google-java-format" },
+		scss = { { "prettierd", "prettier" } },
+		css = { { "prettierd", "prettier" } },
+		java = { "google-java-format" },
 	},
 	-- format_on_save = {
 	-- 	-- These options will be passed to conform.format()
@@ -223,3 +235,5 @@ vim.diagnostic.config({
 
 require("ibl").setup({ scope = { enabled = false }, indent = { char = "┆" } })
 require("monorepo").setup()
+require("lualine").setup()
+require("noice").setup()

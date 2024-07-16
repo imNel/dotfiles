@@ -20,11 +20,10 @@ require("paq")({
 	"rafamadriz/friendly-snippets",
 	-- "zbirenbaum/copilot.lua",
 	-- "zbirenbaum/copilot-cmp",
-  "supermaven-inc/supermaven-nvim",
+	"supermaven-inc/supermaven-nvim",
 	-- "onsails/lspkind.nvim",
 
 	-- Everything else
-	-- "olivercederborg/poimandres.nvim",
 	"mbbill/undotree",
 	"nvim-lua/plenary.nvim",
 	"nvim-telescope/telescope.nvim",
@@ -38,6 +37,12 @@ require("paq")({
 	"folke/zen-mode.nvim",
 	"imNel/monorepo.nvim",
 	"folke/tokyonight.nvim",
+	"zenbones-theme/zenbones.nvim",
+	"f-person/auto-dark-mode.nvim",
+	"nvim-lualine/lualine.nvim",
+	"folke/noice.nvim",
+	"MunifTanjim/nui.nvim",
+	"nvim-tree/nvim-web-devicons",
 })
 
 require("settings")
